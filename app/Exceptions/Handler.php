@@ -2,7 +2,10 @@
 
 namespace App\Exceptions;
 
+use App\Helpers\Constants;
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -50,6 +53,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+        // if ($exception instanceof NotFoundHttpException) {
+        //     return Response()->json(['message' => 'Route not Found'], Constants::codes()::NOT_FOUND);
+        // }
+        // if ($exception instanceof QueryException) {
+        //     return Response()->json(['message' => 'Query Exception'], Constants::codes()::NOT_FOUND);
+        // }
         return parent::render($request, $exception);
     }
 }
