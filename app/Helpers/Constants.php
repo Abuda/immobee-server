@@ -46,4 +46,6 @@ class Constants
   const MAX_RENT = 1000000;
   const MAX_DEPOSIT = 1000000;
   const MAX_COMPENSATION = 1000000;
+
+  const MAX_TERM_LENGTH = 100;
 }

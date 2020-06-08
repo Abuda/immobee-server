@@ -17,11 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', 'AuthController@register');
 Route::post('/login', 'AuthController@login');
 
-Route::get('/products/{product}', 'ProductController@show');
+Route::get('/products', 'ProductController@index');
 
 Route::group(['middleware' => 'auth:api'], function () {
     Route::put('/user/update', 'AuthController@update');
 
     Route::post('/products', 'ProductController@create');
+    Route::get('/products/favorites', 'ProductController@favorites');
     Route::delete('/products/{product}', 'ProductController@destroy');
+    Route::post('/products/{product}/favorite', 'ProductController@toggleFavorite');
 });
+
+Route::get('/products/{product}', 'ProductController@show');

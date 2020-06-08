@@ -43,4 +43,9 @@ class Product extends Model
         'phone_visible',
         'user_id'
     ];
+
+    public function favorites()
+    {
+        return $this->belongsToMany('App\User', 'product_user_favorites');
+    }
 }

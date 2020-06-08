@@ -20,7 +20,7 @@ class ProductSeeder extends Seeder
         return
             [
                 'title' => $faker->sentence(),
-                'description' => $faker->paragraph(),
+                'description' => $faker->paragraph(2),
                 'property' => 'apartment',
                 'type' => 'rent',
                 'rent_type' => 'monthly',
@@ -49,9 +49,14 @@ class ProductSeeder extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            $this->randomProduct(),
-            $this->randomProduct(),
-            $this->randomProduct()
+            $this->randomProduct(), $this->randomProduct(), $this->randomProduct(),
+            $this->randomProduct(), $this->randomProduct(), $this->randomProduct(),
+            $this->randomProduct(), $this->randomProduct(), $this->randomProduct(),
+            $this->randomProduct(), $this->randomProduct(), $this->randomProduct(),
+            $this->randomProduct(), $this->randomProduct(), $this->randomProduct(),
+            $this->randomProduct(), $this->randomProduct(), $this->randomProduct(),
+            $this->randomProduct(), $this->randomProduct(), $this->randomProduct(),
+            $this->randomProduct(), $this->randomProduct(), $this->randomProduct(),
         ]);
     }
 }

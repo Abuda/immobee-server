@@ -38,6 +38,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function favorites()
+    {
+        return $this->belongsToMany('App\Product', 'product_user_favorites');
+    }
+
     public static function getRandom()
     {
         return self::inRandomOrder()->first();
