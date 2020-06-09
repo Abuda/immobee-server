@@ -16,10 +16,10 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->string('description')->nullable();
             $table->enum('type', Constants::TYPE_ARRAY);
-            $table->enum('rent_type', Constants::RENT_TYPE_ARRAY);
+            $table->enum('rent_type', Constants::RENT_TYPE_ARRAY)->default(Constants::RENT_TYPE_ARRAY[0]);
             $table->enum('property', Constants::PROPERTY_ARRAY);
 
             $table->string('country');
@@ -40,8 +40,8 @@ class CreateProductsTable extends Migration
 
             $table->integer('price')->nullable();
             $table->integer('rent')->nullable();
-            $table->integer('deposit')->nullable();
-            $table->integer('compensation')->nullable();
+            $table->integer('deposit')->default(0);
+            $table->integer('compensation')->default(0);
 
             $table->boolean('bathtub')->nullable();
             $table->boolean('balcony')->nullable();
